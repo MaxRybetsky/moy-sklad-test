@@ -20,7 +20,7 @@ public class BirdEntity {
     private String color;
 
     @Column(name = "fly")
-    private boolean fly;
+    private Boolean fly;
 
     @OneToOne
     @JoinColumn(name = "nest_id")
