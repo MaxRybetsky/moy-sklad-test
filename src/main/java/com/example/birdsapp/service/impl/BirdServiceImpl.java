@@ -33,6 +33,13 @@ public class BirdServiceImpl implements BirdsService {
     }
 
     @Override
+    public List<BirdDto> findAllByNestId(Long nestId) {
+        List<BirdEntity> birdEntities = birdsRepository.findAllByNestId(nestId);
+        return modelMapper.map(birdEntities, new TypeToken<List<BirdDto>>() {
+        }.getType());
+    }
+
+    @Override
     @Transactional
     public BirdDto create(BirdDto elem) throws ElementAlreadyExistsException, NoSuchElementException {
         Long id = elem.getId();

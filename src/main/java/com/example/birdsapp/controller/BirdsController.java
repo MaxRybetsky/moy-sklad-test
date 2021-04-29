@@ -20,6 +20,11 @@ public class BirdsController {
         return birdsService.findAll();
     }
 
+    @GetMapping("/nests/{nestId}")
+    public List<BirdDto> findAllBirdsOfTheNest(@PathVariable Long nestId) {
+        return birdsService.findAllByNestId(nestId);
+    }
+
     @GetMapping("/{id}")
     public BirdDto getBirdByID(@PathVariable Long id) throws NoSuchElementException {
         return birdsService.readById(id);
