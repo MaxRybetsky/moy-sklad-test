@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "birds", schema = "public")
 @Data
-public class Bird {
+public class BirdEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -22,5 +22,5 @@ public class Bird {
     @OneToOne(cascade = {CascadeType.DETACH, CascadeType.PERSIST,
             CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "nest_id")
-    private Nest nest;
+    private NestEntity nest;
 }

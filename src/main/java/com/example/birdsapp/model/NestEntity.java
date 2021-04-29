@@ -8,7 +8,7 @@ import java.util.List;
 @Entity
 @Table(name = "nest", schema = "public")
 @Data
-public class Nest {
+public class NestEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -23,6 +23,6 @@ public class Nest {
     @OneToMany(cascade = {CascadeType.DETACH, CascadeType.PERSIST,
             CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "nest_id")
-    private List<Bird> birds;
+    private List<BirdEntity> birds;
 }
 
