@@ -18,6 +18,9 @@ public class BirdDto {
     @Schema(title = "Bird's color")
     private String color;
 
-    @Schema(title = "Bird's nest")
+    @Schema(title = "Bird can fly")
+    private Boolean fly;
+
+    @Schema(title = "Bird's nest ID")
     private NestDto nest;
 }
