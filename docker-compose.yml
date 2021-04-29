@@ -2,11 +2,10 @@ version: '3.1'
 services:
   app:
     container_name: birds
-    image: birds
-    build: ./
+    image: maxrybetsky/my-birds-app
     ports:
       - "8081:5000"
-    depends_on:
+    links:
       - postgresqldb
   postgresqldb:
     image: postgres
@@ -18,4 +17,4 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_DB=birdsappdb
-      - PGDATA = /var/lib/postgresql/data/pgdata
+      - PGDATA=/var/lib/postgresql/data/pgdata
