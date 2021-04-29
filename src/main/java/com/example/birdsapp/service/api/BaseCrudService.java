@@ -3,6 +3,8 @@ package com.example.birdsapp.service.api;
 import com.example.birdsapp.exceptions.ElementAlreadyExistsException;
 import com.example.birdsapp.exceptions.NoSuchElementException;
 
+import java.util.List;
+
 /**
  * Base CRUD Service.
  *
@@ -10,13 +12,21 @@ import com.example.birdsapp.exceptions.NoSuchElementException;
  */
 public interface BaseCrudService<T> {
     /**
+     * Returns all elements from storage.
+     *
+     * @return List of elements.
+     */
+    List<T> findAll();
+
+    /**
      * Adds element to storage.
      *
      * @param elem Element to add.
      * @return Element with updated ID parameters.
      * @throws ElementAlreadyExistsException If such element already exists.
+     * @throws NoSuchElementException If some related items were not found.
      */
-    T create(T elem) throws ElementAlreadyExistsException;
+    T create(T elem) throws ElementAlreadyExistsException, NoSuchElementException;
 
     /**
      * Reads element from storage by its ID.
