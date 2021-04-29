@@ -19,8 +19,10 @@ public class BirdEntity {
     @Column(name = "color")
     private String color;
 
-    @OneToOne(cascade = {CascadeType.DETACH, CascadeType.PERSIST,
-            CascadeType.MERGE, CascadeType.REFRESH})
+    @Column(name = "fly")
+    private boolean fly;
+
+    @OneToOne
     @JoinColumn(name = "nest_id")
     private NestEntity nest;
 }
